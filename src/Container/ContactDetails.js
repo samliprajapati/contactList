@@ -1,12 +1,17 @@
 import { Button, message } from "antd";
 import Avatar from "antd/lib/avatar/avatar";
 import axios from "axios";
-
+import { RollbackOutlined } from "@ant-design/icons";
 import React, { useEffect, useState } from "react";
+import { Link, withRouter } from "react-router-dom";
 
-import { withRouter } from "react-router-dom";
 function ContactDetails(props) {
   const [contactById, setContactById] = useState({});
+  const [favouritContact, setFavouriteContact] = useState(
+    JSON.parse(localStorage.getItem("favouritecontact"), [])
+  );
+  console.log(favouritContact);
+  localStorage.setItem("favouritecontact", JSON.stringify(favouritContact));
 
   useEffect(() => {
     axios
@@ -17,8 +22,10 @@ function ContactDetails(props) {
       .catch((err) => console.log(err));
   }, [props.match.params.id]);
   function AddFavourite(contact) {
+    console.log(contact);
     message.success("successfully Added on favourite list");
-    localStorage.setItem("favourite", JSON.stringify(contact));
+    setFavouriteContact([...favouritContact, contact]);
+    // localStorage.setItem("favourite", JSON.stringify(favouritContact));
   }
   return (
     <div className="Main">
@@ -40,6 +47,12 @@ function ContactDetails(props) {
               Add Favourite
             </Button>
           </div>
+          <Link to="/">
+            <div>
+              <RollbackOutlined />
+              &nbsp;&nbsp; Back to Contact List
+            </div>
+          </Link>
         </div>
       </div>
     </div>
