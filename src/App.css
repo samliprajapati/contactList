@@ -10,14 +10,16 @@
   /* box-shadow: 5px 2px grey; */
 }
 .Details_box {
-  height: 50%;
-  width: 95%;
   border: 1px solid white;
   background-color: white;
   margin-top: 10px;
   border-radius: 3px;
   margin-left: 10px;
   margin-right: 10px;
+}
+.avtar-contactDetails {
+  display: flex;
+  justify-content: center;
 }
 .Main {
   height: 100vh;
@@ -36,10 +38,22 @@
 .contact-name {
   font-size: 18px;
   font-weight: bold;
+  display: flex;
+  justify-content: center;
+}
+.contact-email {
+  display: flex;
+  justify-content: center;
 }
 .contact-content {
   display: flex;
   flex-direction: column;
+}
+.button {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 .MainBox {
   width: 30%;

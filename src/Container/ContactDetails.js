@@ -24,20 +24,22 @@ function ContactDetails(props) {
     <div className="Main">
       <div className="MainBox">
         <div className="Details_box">
-          <div>
+          <div className="avtar-contactDetails">
             <Avatar size={100} src={contactById.avatar} />
           </div>
           <div className="contact-name">{`${contactById.first_name || ""} ${
             contactById.first_name || ""
           }`}</div>
-          <div>{contactById.email}</div>
-          <Button
-            type="primary"
-            danger
-            onClick={() => AddFavourite(contactById)}
-          >
-            Add Favourite
-          </Button>
+          <div className="contact-email">{contactById.email}</div>
+          <div className="button">
+            <Button
+              type="primary"
+              danger
+              onClick={() => AddFavourite(contactById)}
+            >
+              Add Favourite
+            </Button>
+          </div>
         </div>
       </div>
     </div>

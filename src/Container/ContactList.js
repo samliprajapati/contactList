@@ -1,8 +1,6 @@
-import { Button } from "antd";
+import React, { useEffect, useState } from "react";
 import Avatar from "antd/lib/avatar/avatar";
 import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { SearchOutlined } from "@ant-design/icons";
 import { withRouter } from "react-router-dom";
 import { Link } from "react-router-dom";
 
