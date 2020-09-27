@@ -4,6 +4,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { SearchOutlined } from "@ant-design/icons";
 import { withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function ContactList(props) {
   const [contact, setContact] = useState([]);
@@ -19,7 +20,12 @@ function ContactList(props) {
   return (
     <div className="Main">
       <div className="MainBox">
-        <Button shape="circle" icon={<SearchOutlined />} />{" "}
+        {/* <Button shape="circle" icon={<SearchOutlined />} />{" "} */}
+        <Link to="/favourite">
+          <div style={{ color: "white", paddingLeft: "10px" }}>
+            Go to Favourate page
+          </div>
+        </Link>
         {contact.map((item) => {
           return (
             <div

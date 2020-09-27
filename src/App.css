@@ -1,6 +1,4 @@
 .Box {
-  height: 10%;
-  width: 95%;
   border: 1px solid white;
   background-color: white;
   margin-top: 10px;
@@ -44,7 +42,7 @@
   flex-direction: column;
 }
 .MainBox {
-  width: 30vw;
+  width: 30%;
   background-color: #0d8cb3;
   /* display: flex;
 
@@ -87,5 +85,18 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .MainBox {
+    width: 100%;
+    background-color: #0d8cb3;
+  }
+}
+@media only screen and (max-width: 992px) {
+  .MainBox {
+    width: 100%;
+    background-color: #0d8cb3;
   }
 }

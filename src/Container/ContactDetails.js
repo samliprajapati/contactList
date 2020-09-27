@@ -1,7 +1,7 @@
-import { Button } from "antd";
+import { Button, message } from "antd";
 import Avatar from "antd/lib/avatar/avatar";
 import axios from "axios";
-import { Link } from "react-router-dom";
+
 import React, { useEffect, useState } from "react";
 
 import { withRouter } from "react-router-dom";
@@ -17,6 +17,7 @@ function ContactDetails(props) {
       .catch((err) => console.log(err));
   }, [props.match.params.id]);
   function AddFavourite(contact) {
+    message.success("successfully Added on favourite list");
     localStorage.setItem("favourite", JSON.stringify(contact));
   }
   return (
@@ -37,9 +38,6 @@ function ContactDetails(props) {
           >
             Add Favourite
           </Button>
-          <Link to="/favourite">
-            <div>Go to Favourate page</div>
-          </Link>
         </div>
       </div>
     </div>
