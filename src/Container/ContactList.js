@@ -4,8 +4,6 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { SearchOutlined } from "@ant-design/icons";
 import { withRouter } from "react-router-dom";
-import { createBrowserHistory } from "history";
-import ContactDetails from "./ContactDetails";
 
 function ContactList(props) {
   const [contact, setContact] = useState([]);

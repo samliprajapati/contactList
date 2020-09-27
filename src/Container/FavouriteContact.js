@@ -1,10 +1,8 @@
 import { Button } from "antd";
 import Avatar from "antd/lib/avatar/avatar";
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+
+import React from "react";
 import { SearchOutlined } from "@ant-design/icons";
-import { createBrowserHistory } from "history";
-import ContactDetails from "./ContactDetails";
 
 function FavoriteContact(props) {
   const current = [localStorage.getItem("favourite")];

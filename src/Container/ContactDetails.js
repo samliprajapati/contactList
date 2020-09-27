@@ -3,11 +3,11 @@ import Avatar from "antd/lib/avatar/avatar";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import React, { useEffect, useState } from "react";
-import FavoriteContact from "./FavouriteContact";
+
 import { withRouter } from "react-router-dom";
 function ContactDetails(props) {
   const [contactById, setContactById] = useState({});
-  const [favourite, setFavourite] = useState({});
+
   useEffect(() => {
     axios
       .get(`https://reqres.in/api/users/${props.match.params.id}`)
@@ -15,9 +15,8 @@ function ContactDetails(props) {
         setContactById(res.data.data);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [props.match.params.id]);
   function AddFavourite(contact) {
-    setFavourite(contact);
     localStorage.setItem("favourite", JSON.stringify(contact));
   }
   return (
