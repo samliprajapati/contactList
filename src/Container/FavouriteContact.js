@@ -7,8 +7,8 @@ import { createBrowserHistory } from "history";
 import ContactDetails from "./ContactDetails";
 
 function FavoriteContact(props) {
-  const current = localStorage.getItem("favourite");
-  console.log(current);
+  const current = [localStorage.getItem("favourite")];
+
   return (
     <div className="Main">
       <div className="MainBox">
