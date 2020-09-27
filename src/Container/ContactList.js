@@ -3,9 +3,13 @@ import Avatar from "antd/lib/avatar/avatar";
 import axios from "axios";
 import { withRouter } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { SearchOutlined } from "@ant-design/icons";
+import { Button } from "antd";
+import Search from "antd/lib/input/Search";
 
 function ContactList(props) {
   const [contact, setContact] = useState([]);
+  const [filterContactValue, setFilterContactValue] = useState("");
   useEffect(() => {
     axios
       .get("https://reqres.in/api/users")
@@ -14,11 +18,33 @@ function ContactList(props) {
       })
       .catch((err) => console.log(err));
   }, []);
+
+  function handleSearch(value) {
+    debugger;
+    setFilterContactValue(value);
+
+    contact
+      .filter((item) => item.first_name === filterContactValue)
+      .map((item) => setContact([item]));
+  }
   console.log(contact);
   return (
     <div className="Main">
       <div className="MainBox">
-        {/* <Button shape="circle" icon={<SearchOutlined />} />{" "} */}
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "flex-end",
+            marginTop: "10px",
+          }}
+        >
+          <Search
+            style={{ width: 200 }}
+            placeholder="input search text"
+            onSearch={(value) => handleSearch(value)}
+            enterButton
+          />
+        </div>
         <Link to="/favourite">
           <div style={{ color: "white", paddingLeft: "10px" }}>
             Go to Favourate page
