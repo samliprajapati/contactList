@@ -1,0 +1,91 @@
+.Box {
+  height: 10%;
+  width: 95%;
+  border: 1px solid white;
+  background-color: white;
+  margin-top: 10px;
+  border-radius: 3px;
+  margin-left: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+
+  /* box-shadow: 5px 2px grey; */
+}
+.Details_box {
+  height: 50%;
+  width: 95%;
+  border: 1px solid white;
+  background-color: white;
+  margin-top: 10px;
+  border-radius: 3px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.Main {
+  height: 100vh;
+  width: 100vw;
+  background-color: #79defd;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+.content {
+  display: flex;
+}
+.Avtar {
+  padding: 0px 10px;
+}
+.contact-name {
+  font-size: 18px;
+  font-weight: bold;
+}
+.contact-content {
+  display: flex;
+  flex-direction: column;
+}
+.MainBox {
+  width: 30vw;
+  background-color: #0d8cb3;
+  /* display: flex;
+
+  flex-direction: column; */
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
