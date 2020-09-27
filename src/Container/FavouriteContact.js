@@ -1,16 +1,14 @@
-import { Button } from "antd";
+import React from "react";
+
 import Avatar from "antd/lib/avatar/avatar";
 
-import React from "react";
-import { SearchOutlined } from "@ant-design/icons";
-
 function FavoriteContact(props) {
-  const current = [localStorage.getItem("favourite")];
+  const current = [JSON.parse(localStorage.getItem("favourite"))];
+  console.log(current);
 
   return (
     <div className="Main">
       <div className="MainBox">
-        <Button shape="circle" icon={<SearchOutlined />} />{" "}
         {current.map((item) => {
           return (
             <div className="Box">
