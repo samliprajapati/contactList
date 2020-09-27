@@ -5,15 +5,14 @@ import { Link } from "react-router-dom";
 import { RollbackOutlined } from "@ant-design/icons";
 
 function FavoriteContact(props) {
-  const current = JSON.parse(localStorage.getItem("favouritecontact"))
-    ? JSON.parse(localStorage.getItem("favouritecontact"))
-    : [];
+  const current = JSON.parse(localStorage.getItem("favouritecontact")) || [];
+
   console.log(current);
 
   return (
     <div className="Main">
       <div className="MainBox">
-        {current.length === 0 ? (
+        {!current.length ? (
           <>
             <div className="Box">
               <span>No Favourite Contact Added in this List</span>

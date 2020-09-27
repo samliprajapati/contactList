@@ -8,10 +8,13 @@ import { Link, withRouter } from "react-router-dom";
 function ContactDetails(props) {
   const [contactById, setContactById] = useState({});
   const [favouritContact, setFavouriteContact] = useState(
-    JSON.parse(localStorage.getItem("favouritecontact"), [])
+    JSON.parse(localStorage.getItem("favouritecontact")) || []
   );
   console.log(favouritContact);
-  localStorage.setItem("favouritecontact", JSON.stringify(favouritContact));
+  localStorage.setItem(
+    "favouritecontact",
+    JSON.stringify(favouritContact || [])
+  );
 
   useEffect(() => {
     axios
@@ -25,7 +28,6 @@ function ContactDetails(props) {
     console.log(contact);
     message.success("successfully Added on favourite list");
     setFavouriteContact([...favouritContact, contact]);
-    // localStorage.setItem("favourite", JSON.stringify(favouritContact));
   }
   return (
     <div className="Main">
