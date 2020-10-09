@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import Avatar from "antd/lib/avatar/avatar";
 import axios from "axios";
 import { withRouter } from "react-router-dom";
@@ -19,13 +19,20 @@ function ContactList(props) {
       .catch((err) => console.log(err));
   }, []);
 
+  const filteredContact = useMemo(() => {
+    return 
+    });
+  }, [filterContactValue]);
+
   function handleSearch(value) {
     debugger;
     setFilterContactValue(value);
-
-    contact
-      .filter((item) => item.first_name === filterContactValue)
-      .map((item) => setContact([item]));
+   
+      contact.filter(() => {
+        return setContact(contact.first_name.toLowerCase().includes(filterContactValue.toLowerCase)) 
+      })
+   
+    console.log(filterContactValue);
   }
   console.log(contact);
   return (
