@@ -3,9 +3,7 @@ import Avatar from "antd/lib/avatar/avatar";
 import axios from "axios";
 import { withRouter } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { SearchOutlined } from "@ant-design/icons";
-import { Button } from "antd";
-import Search from "antd/lib/input/Search";
+import { Input } from "antd";
 
 function ContactList(props) {
   const [contact, setContact] = useState([]);
@@ -20,18 +18,20 @@ function ContactList(props) {
   }, []);
 
   const filteredContact = useMemo(() => {
-    return 
-    });
-  }, [filterContactValue]);
+    return filterContactValue === ""
+      ? contact
+      : contact.filter((contact) => {
+          debugger;
+          return contact.first_name
+            .toLowerCase()
+            .includes(filterContactValue.toLowerCase());
+        });
+  }, [filterContactValue, contact]);
+  console.log(filteredContact);
 
-  function handleSearch(value) {
-    debugger;
-    setFilterContactValue(value);
-   
-      contact.filter(() => {
-        return setContact(contact.first_name.toLowerCase().includes(filterContactValue.toLowerCase)) 
-      })
-   
+  function handleChange(e) {
+    setFilterContactValue(e.target.value);
+
     console.log(filterContactValue);
   }
   console.log(contact);
@@ -45,11 +45,16 @@ function ContactList(props) {
             marginTop: "10px",
           }}
         >
-          <Search
+          {/* <Search
             style={{ width: 200 }}
             placeholder="input search text"
             onSearch={(value) => handleSearch(value)}
             enterButton
+          /> */}
+          <Input
+            placeholder="input search text"
+            onChange={handleChange}
+            style={{ width: "50%", marginRight: "10px" }}
           />
         </div>
         <Link to="/favourite">
@@ -57,7 +62,7 @@ function ContactList(props) {
             Go to Favourate page
           </div>
         </Link>
-        {contact.map((item) => {
+        {filteredContact.map((item) => {
           return (
             <div
               className="Box"
